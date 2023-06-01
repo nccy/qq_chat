@@ -18,8 +18,11 @@ $(function() {
         },
         async: false
     });
+    const ip = window.location.hostname; // 获取当前页面的 IP 地址
+    const port = window.location.port; // 获取当前页面的端口号
+    console.log(`IP地址：${ip}，端口号：${port}`); // 输出 IP 地址和端口号
     //创建webSocket对象
-    ws = new WebSocket("ws://localhost:8080/chat");
+    ws = new WebSocket("ws://"+ip+":"+port+"/chat");
     //给ws绑定事件
     ws.onopen = function() {
         // 构造要插入样式表的 CSS 字符串
